@@ -1,5 +1,7 @@
 # Using Cursor-Claude for Uncle Block Simulations
 
+Code generated using Claude .. even the MIT license was suggested by Claude :-)
+
 The idea is to study orphaned or uncle block production in PoW chains like bitcoin or rootstock.
 
 For every block height, what we observe is lowest draw from several exponential disrtibutions, one

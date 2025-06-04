@@ -1,3 +1,11 @@
+"""
+MIT License
+
+This code was generated with the assistance of Claude AI.
+You are free to use, modify, and distribute this code under the terms of the MIT License.
+See the LICENSE file for details.
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
