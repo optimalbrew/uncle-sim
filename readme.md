@@ -1,6 +1,6 @@
-# Using Cursor-Claude for Uncle Block Simulations
+# Uncle Block Simulations
 
-Code generated using Claude .. even the MIT license was suggested by Claude :-)
+Code generated using Claude and chatGPT as well .. even the MIT license was suggested by Claude (and chatGPT too) :-)
 
 The idea is to study orphaned or uncle block production in PoW chains like bitcoin or rootstock.
 
@@ -19,7 +19,22 @@ One way to think about the process is to think that an uncle block is one that w
 * We have $b_{iH1} < b_{jH1}$ which makes miner $j$'s block a "potential" uncle 
 * but also $b_{jH1} < b_{iH1} + b_{kH2}$ so it can be actually pointed to by miner $k$
 
+### Partial distributions
+Note: In what follows, we compute and plot the distributions for each case, but we do not compute the
+joint distrbution, which would explain the uncle generation process more fully.
+
 These distributions help compare and visualize the two processes: the order statistic at a given block height and the time taken by the network to mine two blocks (not uncles). In order to describe the process for uncles, we need to compute the joint distribution - which is left for later.
+
+Using chatGPT 40, the expression for the PDF of second order statistic $X_{(2)}$ does not have a closed form expession in well-known distributions. It is a weighted su of exponetials. The expression (NOT verified by myself) is
+
+$$
+f_{X_{(2)}}(x) = \sum_{\substack{i, j = 1 \\ i \ne j}}^n 
+\lambda_i \frac{\lambda_j}{\lambda_j - \lambda_i}
+e^{-\lambda_i x} 
+\prod_{\substack{k=1 \\ k \ne i, j}}^n e^{-\lambda_k x}, \quad x \geq 0
+$$
+
+
 
 ## Second attempt
 See the git commit history for 1st attempt with a flaw (explained below)
